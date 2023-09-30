@@ -53,8 +53,9 @@ class HomeTileWidget extends StatelessWidget {
                                 noteController.titleController.text =
                                     noteController.noteList[index].title
                                         .toString();
-                                Get.to(const EditScreen(
+                                Get.to(EditScreen(
                                   title: 'Edit',
+                                  index: index,
                                 ));
                               },
                               icon: Icon(

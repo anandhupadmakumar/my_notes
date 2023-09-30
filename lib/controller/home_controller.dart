@@ -44,6 +44,7 @@ class HomeController extends GetxController {
     await noteDb.put(noteController.noteList[index].id, editData);
     noteList.removeAt(index);
     noteList.insert(index, editData);
+    Get.back();
     update();
   }
 }

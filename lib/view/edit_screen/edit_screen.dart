@@ -4,8 +4,9 @@ import 'package:note_app/model/my_note_model.dart';
 import 'package:note_app/view/widgets/utils_widgets.dart';
 
 class EditScreen extends StatelessWidget {
-  const EditScreen({super.key, required this.title});
+  const EditScreen({super.key, required this.title, this.index = 0});
   final String title;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +23,11 @@ class EditScreen extends StatelessWidget {
                     id: 1,
                     title: noteController.titleController.text,
                     content: noteController.contentController.text);
-
-                noteController.addNoteList(data);
+                if (title == 'Edit') {
+                  noteController.updateNote(data, index);
+                } else {
+                  noteController.addNoteList(data);
+                }
               },
               icon: const Icon(
                 Icons.save,

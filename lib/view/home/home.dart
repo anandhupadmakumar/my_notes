@@ -59,18 +59,22 @@ class HomeScreen extends StatelessWidget {
                         );
                 }),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              noteController.contentController.clear();
-              noteController.titleController.clear();
+          floatingActionButton: SizedBox(
+            height: Utils.findratio(height: 60, width: 60).height,
+            width: Utils.findratio(height: 60, width: 60).width,
+            child: FloatingActionButton(
+              onPressed: () {
+                noteController.contentController.clear();
+                noteController.titleController.clear();
 
-              Get.to(() => const EditScreen(
-                    title: addScreenTitle,
-                  ));
-            },
-            child: Icon(
-              Icons.add,
-              size: Utils.findratio(height: 38, width: 38).width,
+                Get.to(() => const EditScreen(
+                      title: addScreenTitle,
+                    ));
+              },
+              child: Icon(
+                Icons.add,
+                size: Utils.findratio(height: 38, width: 38).width,
+              ),
             ),
           ),
         );
