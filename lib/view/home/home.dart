@@ -27,7 +27,13 @@ class HomeScreen extends StatelessWidget {
             ),
             backgroundColor: Colors.black,
           ),
-          body: SizedBox(
+          body: Container(
+            height: double.infinity,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+              const Color(0xFF42275a),
+              const Color(0xFF42275a).withOpacity(0.2),
+            ])),
             child: GetBuilder<HomeController>(
                 init: HomeController(),
                 builder: (noteData) {
