@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:note_app/main.dart';
 import 'package:note_app/model/my_note_model.dart';
 
-final noteController = Get.put(HomeController());
+final HomeController noteController = Get.put(HomeController());
 
 class HomeController extends GetxController {
   List<MyNoteModel> noteList = <MyNoteModel>[].obs;
@@ -15,7 +15,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
 
-    // noteList.addAll(noteDb.values);
+    noteList.addAll(noteDb.values);
   }
 
   Future<void> addNoteList(MyNoteModel data) async {
@@ -40,10 +40,10 @@ class HomeController extends GetxController {
     update();
   }
 
-  Future<void> updateNote(MyNoteModel editStudent, int index) async {
-    await noteDb.put(noteController.noteList[index].id, editStudent);
+  Future<void> updateNote(MyNoteModel editData, int index) async {
+    await noteDb.put(noteController.noteList[index].id, editData);
     noteList.removeAt(index);
-    noteList.insert(index, editStudent);
+    noteList.insert(index, editData);
     update();
   }
 }
