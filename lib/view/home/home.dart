@@ -28,9 +28,9 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: Colors.black,
           ),
           body: SizedBox(
-            child: Column(
-              children: [
-                GetBuilder<HomeController>(builder: (noteData) {
+            child: GetBuilder<HomeController>(
+                init: HomeController(),
+                builder: (noteData) {
                   return noteDb.isEmpty
                       ? const Center(
                           child: Text('Add new notes'),
@@ -58,8 +58,6 @@ class HomeScreen extends StatelessWidget {
                           itemCount: noteData.noteList.length,
                         );
                 }),
-              ],
-            ),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
